@@ -6,7 +6,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import ua.knu.sc_teacher.model.Teacher;
-import ua.knu.sc_teacher.model.User;
 import ua.knu.sc_teacher.repository.TeacherRepository;
 
 import java.util.Optional;

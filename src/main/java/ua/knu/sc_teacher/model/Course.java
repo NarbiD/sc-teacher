@@ -7,7 +7,8 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -18,6 +19,21 @@ public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    private String title;
+    private String comment;
+
+    private LocalDate startDate;
+    private LocalDate endDate;
+
+    @OneToMany(mappedBy = "course")
+    private List<Task> tasks;
+
+    @OneToMany(mappedBy = "course")
+    private List<Mailing> mailings;
+
+    @OneToMany(mappedBy = "course")
+    private List<Material> material;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "teacher_id")

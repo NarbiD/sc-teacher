@@ -27,6 +27,10 @@ public class Task {
     private Date startDate;
     private Date endDate;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "course")
+    private Course course;
+
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "task_material",
             joinColumns = @JoinColumn(name = "task_id"),

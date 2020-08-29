@@ -26,6 +26,10 @@ public class Mailing {
     private String comment;
     private Date date;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "course")
+    private Course course;
+
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "mailing_material",
             joinColumns = @JoinColumn(name = "mailing_id"),

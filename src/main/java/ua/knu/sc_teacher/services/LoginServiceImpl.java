@@ -7,7 +7,6 @@ import ua.knu.sc_teacher.dto.TokenDto;
 import ua.knu.sc_teacher.forms.LoginForm;
 import ua.knu.sc_teacher.model.Teacher;
 import ua.knu.sc_teacher.model.Token;
-import ua.knu.sc_teacher.model.User;
 import ua.knu.sc_teacher.repository.TokensRepository;
 import ua.knu.sc_teacher.repository.TeacherRepository;
 

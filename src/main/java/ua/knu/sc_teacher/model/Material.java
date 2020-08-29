@@ -25,6 +25,10 @@ public class Material {
     private String link;
     private String type;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "course")
+    private Course course;
+
     @ManyToMany(mappedBy = "materials", cascade = CascadeType.PERSIST)
     @Fetch(value = FetchMode.SUBSELECT)
     private Set<Task> tasks;
