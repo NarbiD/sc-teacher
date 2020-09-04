@@ -1,19 +1,14 @@
 package ua.knu.sc_teacher.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import ua.knu.sc_teacher.model.Course;
-import ua.knu.sc_teacher.repository.CourseRepository;
+import ua.knu.sc_teacher.model.Teacher;
 
 import java.util.List;
+import java.util.Optional;
 
-@Service
-public class CourseService {
-    @Autowired
-    private CourseRepository courseRepository;
-
-    public List<Course> findAllByTeacherId(long id) {
-        return courseRepository.findByTeacher_Id(id);
-    }
-
+public interface CourseService {
+    List<Course> findAllByTeacherId(long id);
+    Course save(Course course);
+    void deleteById(Long id);
+    Optional<Course> findOneByIdAndTeacher(Long id, Teacher teacher);
 }

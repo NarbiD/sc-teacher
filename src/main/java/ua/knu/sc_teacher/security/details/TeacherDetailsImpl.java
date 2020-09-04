@@ -17,7 +17,6 @@ public class TeacherDetailsImpl implements UserDetails {
 
     private Teacher teacher;
 
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         String userRole = teacher.getRole().name();

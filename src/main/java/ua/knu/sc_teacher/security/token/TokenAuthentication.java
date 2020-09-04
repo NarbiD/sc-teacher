@@ -12,7 +12,7 @@ public class TokenAuthentication implements Authentication {
         this.token = token;
     }
 
-    private String token;
+    private final String token;
     private boolean isAuthenticated;
     private UserDetails userDetails;
 

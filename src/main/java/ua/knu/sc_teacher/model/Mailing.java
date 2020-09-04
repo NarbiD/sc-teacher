@@ -5,12 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
@@ -22,9 +19,9 @@ public class Mailing {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String taskText;
+    private String title;
     private String comment;
-    private Date date;
+    private LocalDateTime date;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "course")

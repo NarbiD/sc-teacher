@@ -9,7 +9,7 @@ import ua.knu.sc_teacher.model.Token;
 public class TokenDto {
     private final String value;
 
-    public static TokenDto from(Token token) {
+    public static TokenDto of(Token token) {
         return new TokenDto(token.getValue());
     }
 }

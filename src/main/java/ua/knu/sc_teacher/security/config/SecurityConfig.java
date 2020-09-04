@@ -47,31 +47,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatcher("/**")
                 .authenticationProvider(authenticationProvider)
                 .authorizeRequests()
-                .antMatchers("/api/courses/**").authenticated()
-                .antMatchers("/index.html").permitAll()
-                .antMatchers("/main.js").permitAll()
+                .antMatchers("/courses/**").authenticated()
+                .antMatchers("/resources/**", "/static/**").permitAll()
                 .antMatchers("/signUp").permitAll()
                 .antMatchers("/signIn").permitAll();
-
-
-//                    .and()
-//                    .formLogin()
-//                        .usernameParameter("login")
-//                        .defaultSuccessUrl("/")
-//                        .loginPage("/login")
-//                        .permitAll()
-//                .and()
-//                .rememberMe()
-//                    .rememberMeParameter("remember-me")
-//                    .tokenRepository(tokenRepository());
-//                .antMatchers("/").authenticated()
-//                .antMatchers("/css/**").permitAll()
-//                .anyRequest().authenticated()
-//                .and()
-//                .
-//
-//
-//
     }
 
     @Override

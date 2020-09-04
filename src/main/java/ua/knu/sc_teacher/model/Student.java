@@ -31,6 +31,9 @@ public class Student {
     @JoinColumn(name = "group_id")
     private StudentGroup group;
 
+    @OneToMany(mappedBy = "student")
+    List<Message> messages;
+
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "student_on_course",
             joinColumns = @JoinColumn(name = "student_id"),

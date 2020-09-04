@@ -17,12 +17,14 @@ import java.util.Optional;
 @Component
 public class TokenAuthenticationProvider implements AuthenticationProvider {
 
-    @Autowired
-    private TokensRepository tokensRepository;
+    private final TokensRepository tokensRepository;
 
-    @Qualifier("teacherDetailsServiceImpl")
-    @Autowired
-    private UserDetailsService userDetailsService;
+    private final UserDetailsService userDetailsService;
+
+    public TokenAuthenticationProvider(TokensRepository tokensRepository, @Qualifier("teacherDetailsServiceImpl") UserDetailsService userDetailsService) {
+        this.tokensRepository = tokensRepository;
+        this.userDetailsService = userDetailsService;
+    }
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
@@ -34,7 +36,8 @@ public class TokenAuthenticationProvider implements AuthenticationProvider {
             tokenAuth.setUserDetails(userDetails);
             tokenAuth.setAuthenticated(true);
             return tokenAuth;
-        } else throw new IllegalArgumentException("Bad token");
+        }
+        return tokenAuth;
     }
 
     @Override
