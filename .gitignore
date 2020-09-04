@@ -1,4 +1,19 @@
+# Maven dist
+
 /target/
-/sc_teacher.iml
+
+# IntelliJ
+
 /.idea/
-/src/frontend/
+**/*.iml
+
+# NodeJS
+
+/src/frontend/dist/
+/src/frontend/node/
+/src/frontend/node_modules
+
+# Extraneous git files
+
+/src/frontend/.git
+/src/frontend/.gitignore
